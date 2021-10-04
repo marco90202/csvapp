@@ -16,3 +16,9 @@ export function post(endpoint = null, body = null, headers = null, fn) {
 
 }
 
+
+export function validateInput(string){
+        let expression = '[0-9]+$'
+        const pattern = new RegExp(expression)
+        return pattern.test(string) === true ? true : false
+}  

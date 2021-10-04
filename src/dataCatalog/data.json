@@ -2,5 +2,16 @@
     "typeID" : [
         "DNI",
         "Carnet de extranjeria"
-    ]
+    ],
+    "steps" : [
+        {
+          "label": "Paso 1"
+        },
+        {
+          "label": "Paso 2"
+        },
+        {
+          "label": "Paso Final"
+        }
+      ]
 }

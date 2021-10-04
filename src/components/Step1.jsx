@@ -10,10 +10,8 @@ import Stack from '@mui/material/Stack'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 
-const Step1 = ({submitForm, handleInputChange}) => {
-
-
-
+const Step1 = ({submitForm, handleInputChange, error, formValues}) => {
+    
     return (
     <ThemeProvider theme={createTheme()}>
         <Grid container component="main" sx={{ height: '100vh' }}>
@@ -56,12 +54,16 @@ const Step1 = ({submitForm, handleInputChange}) => {
                                 <Autocomplete
                                     id="tipoDoc"
                                     name="tipoDoc"
+                                    value={formValues.tipoDoc}
                                     options={data.typeID}
                                     onChange={handleInputChange}
                                     renderInput={(params) => <TextField {...params} label="Tipo" />}
                                 />
                                 <TextField 
                                     fullWidth
+                                    error={formValues.numDoc === '' ? error.valid : false} 
+                                    helperText={formValues.numDoc === '' ? error.text : ""}
+                                    value={formValues.numDoc}
                                     id="numDoc"
                                     label="Nro de Documento"
                                     name="numDoc"
@@ -72,6 +74,9 @@ const Step1 = ({submitForm, handleInputChange}) => {
                                 <TextField
                                     margin="normal"
                                     fullWidth
+                                    error={formValues.Celular === '' ? error.valid : false} 
+                                    helperText={formValues.Celular === '' ? error.text : ""}
+                                    value={formValues.Celular }
                                     id="Celular"
                                     label="Celular"
                                     name="Celular"
@@ -82,6 +87,9 @@ const Step1 = ({submitForm, handleInputChange}) => {
                                 <TextField
                                     margin="normal"
                                     fullWidth
+                                    error={formValues.Placa === '' ? error.valid : false} 
+                                    helperText={formValues.Placa === '' ? error.text : ""}
+                                    value={formValues.Placa}
                                     id="Placa"
                                     label="Placa"
                                     name="Placa"
@@ -89,7 +97,13 @@ const Step1 = ({submitForm, handleInputChange}) => {
                                 />
                             </Stack>
                             <Stack direction="row">
-                                <Checkbox margin="normal" id="Terms" name="Terms" color="success" onChange={handleInputChange}/>
+                                <Checkbox 
+                                    margin="normal" 
+                                    id="Terms" 
+                                    name="Terms" 
+                                    checked={formValues.Terms}
+                                    color="success" 
+                                    onChange={handleInputChange}/>
                                 <p>Acepto la <a href="https://www.youtube.com">Politica de Protección de Datos Personales</a> y los <a href="https://www.youtube.com">Términos y Condiciones.</a></p>
                             </Stack>
                             <Stack direction="row">
