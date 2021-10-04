@@ -7,7 +7,6 @@ import Step3 from './Step3'
 
 const Home = () => {
 
-
     const formData = {
         tipoDoc: '',
         numDoc: '',

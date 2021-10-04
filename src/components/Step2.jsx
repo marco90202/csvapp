@@ -20,14 +20,14 @@ import Box from '@mui/material/Box'
 
 const Step2 = ({handleNext, handleBack, activeStep, formValues}) => {
 
-    const [monto, setMonto] = useState(12500)
+    const [monto, setMonto] = useState(14300)
 
     const handleMore = () => {
-        setMonto(number => number + 1)
+        return monto >= 16500 ? null : setMonto(number => number + 1)
     }
 
     const handleLess = () => {
-        setMonto(number => number - 1)
+       return monto <= 12500 ? null : setMonto(number => number - 1)
     }
 
     const onChange = (e) => {
@@ -43,6 +43,7 @@ const Step2 = ({handleNext, handleBack, activeStep, formValues}) => {
         <ThemeProvider theme={createTheme()}>
             <AppBar sx={{ background: '#F7F8FC' }}>
                 <Toolbar sx={{ background: '#F7F8FC' }}>
+                    
                 </Toolbar>
             </AppBar>
             { formValues.nombres !== '' ? 

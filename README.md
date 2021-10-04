@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Este proyecto fue desarrollado con Reactjs y desplegado en Heroku
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta microapp se creo con `Typescript` y contiene la librerias de `Axios`, `Material-UI`, `react-router-dom`
 
-## Available Scripts
+## Disposicion de Componentes es la siguiente:
 
-In the project directory, you can run:
+Desde [App] se llama a [Home] y luego [Step1], [Step2], [Step3]
 
-### `npm start`
+Tambien contiene las Funciones de Apoyo dentro de la carpeta [/utils] que contiene 
+la funcion post(Axios) y validateInput para permitir solo numeros en los input
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Componente Home`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+    En el componente Home se iba a utilizar react-router-dom para la navegacion entre los componentes Step#
+    pero se descarto ya que la navegacion solo es lineal y se utilizo la funcion `currentStep` que usando la 
+    posicion o pasos se renderiza el componente correcto.
 
-### `npm test`
+    En este componente tambien se inicializa el state formValues, activeStep y error que se heredará a los demas componentes, tambien se definio la funcion `handleInputChange`, `submitForm`, `handleNext` y `handleBack`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    `handleInputChange` toma values de los diferentes textfield y aplica la fn validateInput regexp a los input numericos
+    
+    `submitForm` valida que los valores de formValues no esten vacios para llamar a la funcion personalizada post hacia a la API proveida para informacion y se agregaron nuevos valores para completar el flujo y luego handleNext para combiar de Step caso contrario se marca errores.
 
-### `npm run build`
+### `Componente Step1`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    En este componente se hizo la maquetación inicial de los recursos de Material-UI para desktop y se reciben los props enviados de Home y se realizan las validaciones para los inputs
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `Componente Step2`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    En este componente se hizo la maquetación del segundo Step utilizando tambien los recursos de Material-UI como por ejemplo Stepper ademas de pintar los valores del state formValues 
 
-### `npm run eject`
+### `Componente Step3`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Este componente no se realizó
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Pendientes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Vista responsive para moviles
+    - Terminar Step2
+    - Realizar maquetacion de Step3
+    - Implementacion de Sass
