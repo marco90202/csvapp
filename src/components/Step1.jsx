@@ -10,14 +10,9 @@ import Stack from '@mui/material/Stack'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 
-const Step1 = ({formValues, setFormValues, handleInputChange}) => {
+const Step1 = ({submitForm, handleInputChange}) => {
 
-    const submitForm = () => {
-        setFormValues({
-            ...formValues,
-            flag: '2'
-        })
-    }
+
 
     return (
     <ThemeProvider theme={createTheme()}>
@@ -39,27 +34,26 @@ const Step1 = ({formValues, setFormValues, handleInputChange}) => {
             item xs={7} sm={7} md={7}>
             <Box
                 sx={{
-                    my: 8,
-                    mx: 4,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                  }}
-                  >
-                    <Box
-                        sx={{
+                my: 8,
+                mx: 4,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                }}
+                >
+                        <Box
+                            sx={{
                             pr: '20rem',
                             pl: '20rem'
-                        }}
-                        >
-                        <Stack direction="row">
-                            <Typography component="h1" variant="h4" sx={{mt: 3, mb: 3}}>
-                                    Déjanos tus datos
-                                </Typography>
-                        </Stack>
-                        <Stack direction="row">
+                            }}
+                            >
+                            <Stack direction="row">
+                                <Typography component="h1" variant="h4" sx={{mt: 3, mb: 3}}>
+                                        Déjanos tus datos
+                                    </Typography>
+                            </Stack>
+                            <Stack direction="row">
                                 <Autocomplete
-                                    required
                                     id="tipoDoc"
                                     name="tipoDoc"
                                     options={data.typeID}
@@ -67,7 +61,6 @@ const Step1 = ({formValues, setFormValues, handleInputChange}) => {
                                     renderInput={(params) => <TextField {...params} label="Tipo" />}
                                 />
                                 <TextField 
-                                    required
                                     fullWidth
                                     id="numDoc"
                                     label="Nro de Documento"
@@ -78,7 +71,6 @@ const Step1 = ({formValues, setFormValues, handleInputChange}) => {
                             <Stack direction="row">
                                 <TextField
                                     margin="normal"
-                                    required
                                     fullWidth
                                     id="Celular"
                                     label="Celular"
@@ -89,7 +81,6 @@ const Step1 = ({formValues, setFormValues, handleInputChange}) => {
                             <Stack direction="row">
                                 <TextField
                                     margin="normal"
-                                    required
                                     fullWidth
                                     id="Placa"
                                     label="Placa"
@@ -98,22 +89,22 @@ const Step1 = ({formValues, setFormValues, handleInputChange}) => {
                                 />
                             </Stack>
                             <Stack direction="row">
-                                <Checkbox margin="normal" required id="Terms" name="Terms" color="success" onChange={handleInputChange}/>
+                                <Checkbox margin="normal" id="Terms" name="Terms" color="success" onChange={handleInputChange}/>
                                 <p>Acepto la <a href="https://www.youtube.com">Politica de Protección de Datos Personales</a> y los <a href="https://www.youtube.com">Términos y Condiciones.</a></p>
                             </Stack>
                             <Stack direction="row">
-                                <Button
-                                type="submit"
-                                fullWidth
-                                onClick={submitForm}
-                                variant="contained"
-                                color="error"
-                                sx={{ mt: 3, mb: 2, width: 230, height: 50  }}
-                                >
-                                    COTÍZALO
-                                </Button>
+                                    <Button
+                                    type="submit"
+                                    fullWidth
+                                    onClick={submitForm}
+                                    variant="contained"
+                                    color="error"
+                                    sx={{ mt: 3, mb: 2, width: 230, height: 50  }}
+                                    >
+                                        COTIZALO
+                                    </Button>
                             </Stack>
-                    </Box>
+                        </Box>
             </Box>
           </Grid>
         </Grid>
